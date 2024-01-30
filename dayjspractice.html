@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DayJs Practice</title>
+</head>
+<body>
+  <p class="target"></p>
+  <script type="module">
+    import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
+    import { isWeekend as isSatSun } from "./scripts/dayjspractice.js";
+
+    const today = dayjs();
+    console.log(`Today is ${today.format('dddd')}`);
+    const in5Days = today.add(5, 'days')
+    console.log(in5Days.format('MMMM D'));
+    const in1Month = today.add(1, 'months');
+    console.log(in1Month.format('MMMM D'));
+    const oneMonthAgo = today.subtract(1, 'months');
+    console.log(oneMonthAgo.format('MMMM D'));
+
+    const x = prompt('Please input a number');
+    const testDate = today.add(x, 'days');
+    console.log(isSatSun(testDate));
+  </script>
+</body>
+</html>
